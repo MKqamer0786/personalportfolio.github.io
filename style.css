@@ -1,0 +1,840 @@
+
+
+          /*========================================= Beginning of the style Part =======================================*/
+
+
+
+/* Root variables: To create a variable with global scope, declare it inside the :root selector.
+ The :root selector matches the document's root element. */
+
+
+
+ /* The :root CSS pseudo-class matches the root element of a tree representing the document.
+  In HTML, :root represents the <html> element and is identical to the selector html,
+  except that its specificity is higher. */
+
+:root{
+    --color-white: #fff;
+    --color-light: #f4f4f4;
+    --color-dark: #525252;
+    --color-black: #141415;
+    --color-primary: #e85f0a;
+    --color-primary-light: hsl(14, 89%, 53%, 12%);
+    --color-success: #29f5a6;
+    --color-warning: #ffce31;
+
+/* CSS transitions allows you to change property values smoothly, over a given duration. */
+    --transition: all 300ms ease;
+}
+
+/* The asterisk (*) is known as the CSS universal selectors. It can be used to select any and all types of elements in an HTML page. 
+   The asterisk can also be followed by a selector while using to select a child object.
+    This selector is useful when we want to select all the elements on the page. */
+
+*{
+    margin: 0;
+    padding: 0;
+    /* An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out". */
+    outline: 0;
+    border:0;
+    /* The box-sizing CSS property sets how the total width and height of an element is calculated. */
+    box-sizing: border-box;
+    list-style: none; /* It removes the bullet points of the list */
+    text-decoration: none;  /* It removes all the underline of the links */
+}
+
+html{
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+
+/* First, we declare some global variables (--dark and --white etc).
+   Then, we use the var() function to insert the value of the variables later in the style sheet: */
+
+
+body{
+    background: var(--color-warning);
+    font-family: 'Alegreya Sans', sans-serif;
+    color: var(--color-dark);
+    /* The max-width property defines the maximum width of an element.
+    If the content is larger than the maximum width, it will automatically change the height of the element.
+    If the content is smaller than the maximum width, the max-width property has no effect.
+    Note: This prevents the value of the width property from becoming larger than max-width.
+    The value of the max-width property overrides the width property. */
+    max-width: 100vw;   /*  vw:	Relative to 1% of the width of the viewport* */
+}
+
+/* Tip: The em and rem units are practical in creating perfectly scalable layout!
+* Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm. */
+
+h1,h2,h3,h4,h5{
+    color: var(--color-black);
+    line-height: 1.2;
+}
+
+/* rem: Relative to font-size of the root element */
+
+/* This means that 1rem equals the font size of the html element
+   (which for most browsers has a default value of 16px). */
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.6rem;
+}
+
+h3{
+    font-size: 1.6rem;
+}
+
+h4{
+    font-size: 1.2rem;
+}
+
+h5{
+    font-size: 0.86rem;   
+}
+
+p{
+    line-height: 1.8;
+}
+
+.primaryClass{
+    width: 80%;
+    margin: 0 auto;
+}
+
+section{
+    padding:10rem 0 7rem; /*This means top 10rem left and right 0 and bottom 7rem */
+    max-width: 100vw;
+
+    /* If the content is over the width of the screen,
+     then we can hide the extra element by setting overflow-x to hidden. */
+    
+     overflow-x: hidden;
+}
+
+section h1{
+    text-align: center;
+    display: block;       /*The display CSS property sets whether an element is 
+                            treated as a block or inline element and the layout used for its children,
+                            such as flow layout, grid or flex. */
+    margin-bottom: 5rem;
+}
+
+img{
+    width:100%;
+}
+
+.btn{
+    padding: 1.4rem 3.4rem;
+    font-size: 1.1rem;
+    color: var(--color-black);
+    background: var(--color-white);
+    display: inline-block;
+    margin: 2rem 0;
+    transition: var(--transition);
+}
+
+.primaryButton{
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn:hover{
+ box-shadow: 0 2rem 2rem var(--color-primary-light);
+}
+
+                        /*-------------------- NavigationBar bar ------------------*/
+
+nav{
+    width: 100%;
+    height: 5rem;
+    background: var(--color-white);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    border-bottom: 1px solid var(--color-light);
+}
+
+nav .primaryClass{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+nav button{
+    display: none;  /* It removes*/
+}
+
+nav h2{
+    color: var(--color-black);
+}
+
+nav .primaryClass ul{
+    display: flex;
+    height: 100%;
+}
+
+nav .primaryClass ul li a{
+    height: 100%;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    color: var(--color-black);
+    position: relative;
+    transition: var(--transition);
+}
+
+nav .primaryClass ul li a:hover{
+    color: var(--color-warning);
+}
+
+                    /*-----------------  Info and Image starts here -----------------*/
+
+ section.infoClass{
+     display: grid;
+     place-items: center;
+     position: relative;
+     top:5rem;
+     padding-bottom: 14rem;
+
+ }
+
+ section.infoClass .primaryClass{
+     display: grid;
+     grid-template-columns: 5rem auto 28rem;
+     gap: 2rem;
+ }
+
+                     /*-----------------  Social Media starts here -----------------*/
+
+ section.infoClass .socialCls{
+     display: flex;
+     flex-direction: column;
+     gap: 1.6rem;
+     margin-top: 5rem;
+ }
+
+
+
+section.infoClass .socialCls a{
+    font-size: 1.1rem;
+    background: var(--color-light);
+    padding:0.3rem;
+    border-radius: 50%;
+    height:2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+section.infoClass .socialCls a:hover{
+ background: var(--color-primary);
+ color: var(--color-white);
+
+}
+
+                          /*--------------------- Infos section Starts------------------*/
+
+                          
+
+section.infoClass .infos h1{
+    text-align: left;
+    margin: 0;
+}
+
+section.infoClass .h3{
+    margin:2.4rem 0 1rem;
+}
+
+section.infoClass .info p{
+     width: 34rem;
+}
+
+section.infoClass .profile-area .inner-circle img{
+    border-top-right-radius: 55%;
+    border-bottom-left-radius: 55%;
+}
+
+                     /*--------------------- Infos section Ends  ------------------*/
+
+
+                     /*--------------------- About section starts------------------------*/
+
+section.about{
+    background: var(--color-light);
+}
+
+section.about .primaryClass {
+    display: grid;
+    grid-template-columns: 26rem auto;
+    gap: 5rem;
+}
+
+section.about p{
+    margin-bottom:1rem;
+}
+
+section.about .primaryClass .readMoreCls {
+    display: none;
+}
+
+section.about .primaryClass .readMoreCls  tbody{
+    margin: 0;
+    top: 0;
+    padding: 0;
+    padding-right: 0px;
+
+}
+
+/* Toggle to read-more  */
+
+section.about .primaryClass .readMoreCls.show-content {
+    display: block;
+}
+
+section.about .primaryClass .readMoreCls h3{
+    padding: 1.5em 0;
+}
+
+section.about .primaryClass .readMoreCls  tbody{
+    font-size: 110%;
+}
+
+section.about .primaryClass .readMoreCls  tbody th{
+    text-align: left;
+}
+
+section.about .primaryClass .readMoreCls  tbody td{
+    text-align: left;
+    padding-left: 3rem;
+}
+
+
+
+section.about .primaryClass .read-more{
+    display: block;
+    margin: 1rem 0 2rem;
+    color: var(--color-warning);
+    cursor: pointer;
+}
+section.about .primaryClass .read-more:hover{
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+                     /*--------------------- About section Ends------------------------*/
+
+                     /*--------------------- Skills section starts------------------------*/
+
+
+section.skills .primaryClass{
+    width: 50%;
+} 
+
+section.skills .skill {
+    margin-bottom: 1rem;
+}
+
+section.skills .skill .topCls {
+    background: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-white);
+    padding: 1.6rem;
+    cursor: pointer;
+}
+
+section.skills .skill .topCls {
+    color: var(--color-white);
+}
+
+section.skills .skill .topCls .left{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section.skills .skill .item{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.6rem;
+    background: var(--color-light);
+    margin-bottom: 0.3rem;
+    transition: var(--transition);
+}
+
+section.skills .skill .item:hover{
+    background: var(--color-white);
+}
+
+section.skills .item .progressCls{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section.skills .items .progressBarCls{
+    width: 100%;
+    height: 1rem;
+    background: var(--color-primary-light);
+}
+
+section.skills .items .progressBarCls .progress{
+    height: 100%;
+    width: 50%;
+    background: var(--color-primary);
+}
+
+section.skills .item:nth-child(2) .progressBarCls .progress{
+    width: 70% ;
+}
+
+section.skills .item:nth-child(3) .progressBarCls .progress{
+    width: 60% ;
+}
+                     /*---------------------  Skills section Ends   ------------------------*/
+
+                     /*--------------------- Education section starts------------------------*/
+
+section.education{
+    background: var(--color-light);
+}
+
+section.education .primaryClass{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 2rem;
+}
+
+section.education .primaryClass .educationCls{
+    background: var(--color-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    cursor:default;
+    transition: var(--transition);
+}
+
+section.education .primaryClass .educationCls:hover{
+    box-shadow: 0 3rem 3rem var(--color-primary-light);
+}
+
+section.education .primaryClass .educationCls span{
+    background: var(--color-primary);
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--color-white);
+}
+
+                     /*--------------------- Education section Ends  ------------------------*/
+                     
+                     /*---------------------   Project section starts   ----------------------*/
+
+section.myProjectsCls .projects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+section.myProjectsCls .projects .project{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+section.myProjectsCls .primaryClass h2{
+    text-align:center;
+    justify-content:center;
+ }
+
+
+
+
+                    /*---------------------   Project section Ends   ----------------------*/
+
+
+                    /*---------------------  Contact section Starts   ----------------------*/
+
+section.contactMe{
+    background: url('call_of_duty_black_ops_13-wallpaper-1920x1080.jpg') no-repeat center center/cover;
+    padding: 0;
+    max-width: 100vw;
+}
+
+section.contactMe .overlayCls{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.6);
+    padding: 10rem 0 7rem;
+}
+
+section.contactMe .primaryClass {
+    width: 40%;
+}
+
+section.contactMe .primaryClass h1{
+    margin: 0;
+    color: var(--color-white);
+}
+section.contactMe .primaryClass p{
+    text-align: center;
+    color: var(--color-white);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+section.contactMe form{
+    margin-top: 3rem;
+}
+ 
+section.contactMe .primaryClass form div{
+    display: flex;
+    margin-top: 2rem ;
+}
+
+section.contactMe form input,
+ section.contactMe form textarea{
+     display: block;
+     width: 100%;
+     margin: 0.5rem 0;
+     padding: 1.6rem;
+     border: 1px solid var(--color-white);
+     background: transparent;
+     color: var(--color-white);
+     transition: var(--transition);
+ } 
+
+ section.contactMe form .btn{
+     width: 14rem;
+     border: none;
+     background: var(--color-primary-light);
+     color: var(--color-light);
+     margin: 2rem auto 0;
+
+ }
+ section.contactMe form .btn:hover{
+     background: var(--color-primary);
+     cursor: pointer;
+     color: var(--color-white);
+ }
+
+
+                     
+                    /*--------------------- Contact section Ends   ----------------------*/
+
+
+                    /*---------------------    Footer Starts here   ----------------------*/
+
+
+footer{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap :1rem;
+    background: rgba(0,0,0.9, 0.9);
+    color: var(--color-white);   
+}
+
+footer .privacy{
+    color: var(--color-success);
+} 
+
+                    /*--------------------- Footer Ends here   ----------------------*/
+
+                    
+                    /*----------------     Media Queries Starts (for 1024px)  ------*/
+
+
+@media screen and (max-width: 1024px){
+   h1{
+       font-size: 2.2rem
+       }
+     
+   h2{
+       font-size: 1.6rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    h4{
+        font-size: 1rem;
+    }
+
+    h5{
+        font-size: 0.68rem;
+    }
+    
+    .primaryClass{
+        width:94%;
+    }
+
+
+                    /*--------------------- Navigation bar stars  --------------------*/
+
+nav{
+    box-shadow: 0 1rem 1rem rgba(0,0,0, 0.1);
+}
+
+nav h3{
+    margin-left: 1rem;
+}
+
+nav .primaryClass{
+    width: 100%;
+}
+
+nav .primaryClass ul{
+    position: fixed;
+    top: 0;
+    flex-direction: column;
+    z-index: 3;
+    width: 16rem;
+    height: 100vh;
+    background: var(--color-white);
+    box-shadow: 1rem 0 2rem var(--color-primary-light);
+    display: none;
+}
+
+nav ul li{
+    height: 4.6rem;
+    width: 100%;
+}
+
+nav .primaryClass ul li a{
+    width: 100%;
+    justify-content: start;
+    padding-left: 2rem;
+}
+
+nav .primaryClass ul li a:hover{
+    padding-left: 3rem;
+}
+
+nav button {
+    display: inline-block;
+    cursor: pointer;
+    background: transparent;
+    color: var(--color-black);
+    margin-right: 1rem;
+}
+nav button#closeButton {
+    display: none;
+}
+
+
+
+                    /* ---------------------- Info and Image starts here----------- */
+
+
+section.infoClass {
+    margin-top:-8rem;
+    padding-bottom: 7rem;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+section.infoClass .primaryClass{
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 50%;
+    text-align: center;
+    row-gap: 6rem;
+}
+
+section.infoClass .primaryClass .socialCls{
+    display: none;
+}
+
+section.infoClass .primaryClass .info{
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+section.infoClass .primaryClass .info h1{
+    text-align: center;
+    margin-top:10%;    
+}
+
+section.infoClass .primaryClass .info p{
+    margin: 0 auto;
+    width: 92%;
+}
+
+section.infoClass .primaryClass .profile-area{
+    grid-row: 1;
+    width: 94%;
+    margin: 0 auto;
+    
+}
+
+
+section.infoClass .primaryClass .inner-circle{
+width:50%;
+height: 5%;
+padding:0;
+margin:0;
+display: inline-block;
+align-items:center;
+justify-content:center;
+
+
+}
+
+section.infoClass .primaryClass .profile-area .inner-circle img{
+    border-radius: 8%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+                    /* ---------------------- About section starts here----------- */
+
+
+section.about .primaryClass{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center; 
+
+}
+
+section.about .primaryClass{ 
+    width:80%;
+    height:20%;
+}
+
+                     /* ---------------------- Skills section starts here----------- */
+
+
+section.skills .primaryClass{
+    width: 64%;
+    height: auto;
+}
+
+
+                     /* ---------------------- Project section starts here----------- */
+
+
+
+
+
+ section.myProjectsCls .primaryClass h1{
+    font-size:3rem;
+    margin-bottom:70px;
+}
+
+section.myProjectsCls .primaryClass h2{
+   text-align:center;
+   justify-content:center;
+}
+
+                     /* ---------------------- contactMe section starts here----------- */
+
+
+section.contactMe .primaryClass {
+    width: 40%;
+}
+
+
+
+                         /* ----------------------   Footer section starts here     --------------- */
+footer p, .privacy{
+    font-size:110%;
+}
+
+                    
+                          /*----------------     Media Queries Ends (for 1024px)  -------------*/
+
+                                              
+                          /*----------------     Media Queries Starts (for 600px) --------------*/
+
+@media screen and (max-width: 600px){
+    section.contactMe .primaryClass{
+        width:80%;
+    }
+    section.education .primaryClass{
+        grid-template-columns: 1fr;
+        width: 84%;
+        height: auto;
+    
+    }
+
+    section.myProjectsCls .primaryClass .projects{
+        grid-template-columns: 1fr;
+     }
+
+     section.myProjectsCls .primaryClass h1{
+         font-size:3rem;
+         margin-bottom:70px;
+     }
+
+     section.myProjectsCls .primaryClass h2{
+        text-align:center;
+        justify-content:center;
+     }
+
+     section.skills .primaryClass{
+        width: 84%;
+        height: auto;
+    } 
+    section.infoClass .primaryClass .info h1{
+        text-align: center;
+       margin-top:1px;
+       font-size: 1.9em; 
+    }
+    footer p, .privacy{
+        font-size:90%;
+    }
+    
+}
+
+
+
+
+section.contactMe .primaryClass form label[type="submit"]{
+    display: flex;
+}
+
+
+}
+
+                          /*----------------     Media Queries Ends (for 600px)  ---------------*/
+
+
+
+
+          /*========================================= End of the style Part =======================================*/
+
+
+
+
+
+
+
+
+
+
+
